@@ -82,7 +82,7 @@ bool TcpServer::startService(int timeout) {
                 // 客户端发来新的消息
                 //std::cout << "---------------MSG\n";
                 int fd = m_epollEvents[i].data.fd;
-                /*
+                
                 time_t rawtime;
                 struct tm *timeinfo;
                 char buffer[80];
@@ -90,7 +90,7 @@ bool TcpServer::startService(int timeout) {
                 timeinfo = localtime(&rawtime);
                 strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", timeinfo);
                 std::string str(buffer);
-                */
+                
                   
                 
                 m_upThreadPool->enqueue(std::bind(&TcpServer::receiveClientMsg, this, fd, str));
